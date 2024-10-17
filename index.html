@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+</head>
+<body>
+
+<div class="container">
+    <h2>Survey Form</h2>
+    <p><span class="must">* Indicated required questions.</span></p>
+    <p>Note: Select <span class="must">"null"</span> if not answered. [For the questions that are not mandatory]</p>
+    <div class="Q">
+    <form action="process_survey.php" method="POST">
+        <!-- Q1 -->
+            <p><span class="q_no">Q1: </span>Do you agree to help us in research by providing some information about your household travel diaries? 
+                [ আপনি কি আপনার গৃহস্থালিসংক্রান্ত যাত্রাবিবরনির কিছু তথ্য দিয়ে গবেষনায় সাহায্য করতে রাজি আছেন? ] <span class="must">*</span> <br> </p>
+            
+            <div class="radio-input">
+                <label class="label">
+                  <input type="radio" id="value-1"  name="q1" value="Yes" required>
+                  <p class="text">Yes</p>
+                </label>
+                <label class="label">
+                  <input type="radio" id="value-2" name="q1" value="No" required>
+                  <p class="text">No</p>
+                </label>
+
+              </div>
+              
+            </div>    
+        <!-- Q2 -->
+        <div class="Q">
+        <p><span class="q_no">Q2: </span>Your Mobile Number if you want to attend lucky draw. </p>
+        
+        <input type="number" id="p_num" name="q2" placeholder="Phone">
+        </div>
+        <!-- Q3 -->
+        <div class="Q">
+        <p><span class="q_no">Q3: </span>Ward NO.<span class="must">*</span> </p>
+        
+        <input type="number" id="ward" name="q3" placeholder="Ware no." required>
+        
+        </div>
+        <!-- Q4 -->
+        <div class="Q">
+        <p><span class="q_no">Q4: </span>Household Type <span class="must">*</span><br>
+            <br><span style="color:rgb(0, 136, 255)">Enter 1:</span> for bungalows/ luxury apartments, typically households with cars<br>
+            <br><span style="color:rgb(0, 136, 255)">Enter 2:</span> for one or two or three Bedroom hall Kitchen apartments, typically households
+            that don't own a car (may or may not own two-wheelers)<br>
+            <br><span style="color:rgb(0, 136, 255)">Enter 3:</span> for Iow income households/ tin shed / brick wall building that are not categorized
+            as slum / basti / hutment<br>
+            <br><span style="color:rgb(0, 136, 255)">Enter 4:</span> for slum / basti / hutment<br>
+            <br><span style="color:rgb(0, 136, 255)">Enter 5:</span> for bachelor household or mess.
+            Mark only one oval. </p>
+        
+            <div class="radio-input">
+                <label class="label">
+                  <input type="radio" name="q4" value="1" required>
+                  <p class="text">1</p>
+                </label>
+                <label class="label">
+                  <input type="radio" name="q4" value="2" required>
+                  <p class="text">2</p>
+                </label>
+                <label class="label">
+                    <input type="radio"  name="q4" value="3" required>
+                    <p class="text">3</p>
+                  </label>
+                  <label class="label">
+                    <input type="radio" name="q4" value="4" required>
+                    <p class="text">4</p>
+                  </label>
+                  <label class="label">
+                    <input type="radio"  name="q4" value="5" required>
+                    <p class="text">5</p>
+                  </label>
+              </div>
+              
+        </div>
+        <!-- Q5-->
+        <div class="Q">
+        <h3><span class="q_no">Q5: </span>Household Serial No <span class="must">*</span></h3>
+        <p>Household serial number surveyed on that day, regardless of its type.  Start with 01 for the first household surveyed on any day.</p>
+        
+        <input type="number" id="addr" name="q5" placeholder="Serial">
+        
+        </div>
+        <!-- Q6 -->
+        <div class="Q">
+        <p><span class="q_no">Q6: </span>Monthly household Income (BDT) <span class="must">*</span></p>
+        <div class="radio-input">
+            <label class="label">
+              <input type="radio" name="q6" value="<10k" required>
+              <p class="text"><10k</p>
+            </label>
+            <label class="label">
+              <input type="radio" name="q6" value="10-25k" required>
+              <p class="text">10-25k</p>
+            </label>
+            <label class="label">
+                <input type="radio"  name="q6" value="25-50k" required>
+                <p class="text">25-50k</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="q6" value="50-75k" required>
+                <p class="text">50-75k</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q6" value="75-100k" required>
+                <p class="text">75-100k</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q6" value="1-2lac" required>
+                <p class="text">1-2lac</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q6" value=">2lac" required>
+                <p class="text">>2lac</p>
+              </label>
+          </div>
+          
+        </div>
+            <!-- Q7 -->
+            <div class="Q">
+            <p><span class="q_no">Q7: </span> Home Owned or rented? </p>
+            <div class="radio-input">
+                <label class="label">
+                  <input type="radio" name="q7" value="Owned" >
+                  <p class="text">Owned</p>
+                </label>
+                <label class="label">
+                  <input type="radio" name="q7" value="Rented" >
+                  <p class="text">Rented</p>
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-1" active name="q1" value="" checked="">
+                    <p class="text">null</p>
+              </label>  
+              </div>
+              
+              </div>
+            <!-- Q8 -->
+            <div class="Q">
+            <p><span class="q_no">Q8: </span> Does the household own any private vehicles?
+                2 wheelers, cars or cycle <span class="must">*</span></p>
+                <div class="radio-input">
+                    <label class="label">
+                      <input type="radio" id="value-1"  name="q8" value="value-1" required>
+                      <p class="text">Yes</p>
+                    </label>
+                    <label class="label">
+                      <input type="radio" id="value-2" name="q8" value="value-2" required>
+                      <p class="text">No</p>
+                    </label>
+                  </div>
+                  
+            </div>
+            <!-- Q9 -->
+            <div class="Q">
+            <p><span class="q_no">Q9: </span> How many members live in this household? </p>
+            <div class="radio-input">
+            <label class="label">
+                <input type="radio"  name="q9" value="1" >
+                <p class="text">1</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q9" value="2" >
+                <p class="text">2</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q9" value="3" >
+                <p class="text">3</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q9" value="4" >
+                <p class="text">4</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q9" value="5" >
+                <p class="text">5</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q9" value="6" >
+                <p class="text">6</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q9" value="7" >
+                <p class="text">7</p>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q9" value="7+" >
+                <p class="text">7+</p>
+              </label>
+              <label class="label">
+                <input type="radio" id="value-1" active name="q1" value="" checked="">
+                <p class="text">null</p>
+          </label>  
+            </div>
+            
+            </div>
+            <!-- Q10 -->
+            <div class="Q">
+            <p><span class="q_no">Q10: </span> <h3>Travel Date</h3>
+                Please select today if your household members have completed all trips of the day or else please select yesterday as travel day and fill out yesterday's information. But trip information of one whole day of the all household members is required for this research. </p>
+                <label class="label">
+                    <input type="date"  name="q10">
+                  </label>
+                  
+            </div>
+            <!-- Q11 -->
+            <div class="Q">
+            <p><span class="q_no">Q11: </span> Vehicle 1 type </p>
+            <div class="radio-input">
+                <label class="label">
+                    <input type="radio"  name="q11" value="Motor Car" >
+                        <p class="text">Motor Car</p>  
+                </label>
+                <label class="label">
+                    <input type="radio"  name="q11" value="Motorcycle" >
+                        <p class="text">Motorcycle</p>  
+                </label>
+                <label class="label">
+                    <input type="radio"  name="q11" value="Motor Car" >
+                        <p class="text">Bicycle</p>  
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-1" active name="q11" value="" checked="">
+                    <p class="text">null</p>
+              </label>  
+                </div> 
+            </div>
+
+            <!-- Q12 -->
+            <div class="Q">
+                <p><span class="q_no">Q12: </span> Vehicle 1 fuel type </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q12" value="Petrol/Octane" >
+                             <p class="text">Petrol/Octane</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q12" value="Diesel" >
+                            <p class="text">Diesel</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q12" value="CNG" >
+                        <p class="text">CNG</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q12" value="Mixed" >
+                            <p class="text">Mixed</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q12" value="None" checked="">
+                        <p class="text">None</p>
+                    </label>
+                </div> 
+                
+            </div>
+
+            <!-- Q13 -->
+            <div class="Q">
+                <p><span class="q_no">Q13: </span> <h3>Vehicle 1 make model and year</h3>
+                    Make model means the name of the company and the name of the car model for example: Honda civic 2000, Toyota corolla 2005, Toyota axio 2008 etc. Please keep blank if it is bicycle </p>
+                    <input type="text" name="q13" placeholder="Your Answer">
+                </div>
+
+            <!-- Q14 -->
+            <div class="Q">
+                <p><span class="q_no">Q14: </span><h3> Vehicle 1 buying date </h3>
+                    write when the vehicle was bought. Please try to provide accurate information for at least the month and year. </p>
+                    <input type="date" name="q14" >
+                </div>
+
+            
+            <!-- Q15 -->
+            <div class="Q">
+                <p><span class="q_no">Q15: </span> Vehicle 2 type </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio"  name="q15" value="Motor Car" >
+                            <p class="text">Motor Car</p>  
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q15" value="Motorcycle" >
+                            <p class="text">Motorcycle</p>  
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q15" value="Motor Car" >
+                            <p class="text">Bicycle</p>  
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" active name="q15" value="" checked="">
+                        <p class="text">null</p>
+                  </label>  
+                    </div> 
+                </div>
+    
+                <!-- Q16 -->
+                <div class="Q">
+                    <p><span class="q_no">Q16: </span> Vehicle 2 fuel type </p>
+                    <div class="radio-input">
+                        <label class="label">
+                             <input type="radio"  name="q16" value="Petrol/Octane" >
+                                 <p class="text">Petrol/Octane</p>
+                        </label>
+                        <label class="label">
+                            <input type="radio"  name="q16" value="Diesel" >
+                                <p class="text">Diesel</p>
+                       </label>
+                       <label class="label">
+                        <input type="radio"  name="q16" value="CNG" >
+                            <p class="text">CNG</p>
+                        </label>
+                        <label class="label">
+                            <input type="radio"  name="q16" value="Mixed" >
+                                <p class="text">Mixed</p>
+                        </label>
+                        <label class="label">
+                            <input type="radio"  name="q16" value="None" checked="">
+                            <p class="text">None</p>
+                        </label>
+                    </div> 
+                    
+                </div>
+    
+                <!-- Q17 -->
+                <div class="Q">
+                    <p><span class="q_no">Q17: </span> <h3>Vehicle 2 make model and year</h3>
+                        Make model means the name of the company and the name of the car model for example: Honda civic 2000, Toyota corolla 2005, Toyota axio 2008 etc. Please keep blank if it is bicycle </p>
+                        <input type="text" name="q17" placeholder="Your Answer">
+                    </div>
+    
+                <!-- Q18 -->
+                <div class="Q">
+                    <p><span class="q_no">Q18: </span><h3> Vehicle 2 buying date </h3>
+                        write when the vehicle was bought. Please try to provide accurate information for at least the month and year. </p>
+                        <input type="date" name="q18" >
+                    </div>
+    
+                    <!-- Q19 -->
+            <div class="Q">
+                <p><span class="q_no">Q19: </span> Vehicle 3 type </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio"  name="q19" value="Motor Car" >
+                            <p class="text">Motor Car</p>  
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q19" value="Motorcycle" >
+                            <p class="text">Motorcycle</p>  
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q19" value="Motor Car" >
+                            <p class="text">Bicycle</p>  
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" active name="q19" value="" checked="">
+                        <p class="text">null</p>
+                  </label>  
+                    
+                    </div> 
+                </div>
+    
+                <!-- Q20 -->
+                <div class="Q">
+                    <p><span class="q_no">Q20: </span> Vehicle 3 fuel type </p>
+                    <div class="radio-input">
+                        <label class="label">
+                             <input type="radio"  name="q20" value="Petrol/Octane" >
+                                 <p class="text">Petrol/Octane</p>
+                        </label>
+                        <label class="label">
+                            <input type="radio"  name="q20" value="Diesel" >
+                                <p class="text">Diesel</p>
+                       </label>
+                       <label class="label">
+                        <input type="radio"  name="q20" value="CNG" >
+                            <p class="text">CNG</p>
+                        </label>
+                        <label class="label">
+                            <input type="radio"  name="q20" value="Mixed" >
+                                <p class="text">Mixed</p>
+                        </label>
+                        <label class="label">
+                            <input type="radio"  name="q20" value="None" checked="">
+                            <p class="text">None</p>
+                        </label>
+                    </div> 
+                    
+                </div>
+    
+                <!-- Q21 -->
+                <div class="Q">
+                    <p><span class="q_no">Q21: </span> <h3>Vehicle 3 make model and year</h3>
+                        Make model means the name of the company and the name of the car model for example: Honda civic 2000, Toyota corolla 2005, Toyota axio 2008 etc. Please keep blank if it is bicycle </p>
+                        <input type="text" name="q21" placeholder="Your Answer">
+                    </div>
+    
+                <!-- Q22 -->
+                <div class="Q">
+                    <p><span class="q_no">Q22: </span><h3> Vehicle 3 buying date </h3>
+                        write when the vehicle was bought. Please try to provide accurate information for at least the month and year. </p>
+                        <input type="date" name="q22" >
+                    </div>
+
+            <!-- Q23 -->
+            <div class="Q">
+                <p><span class="q_no">Q23: </span>Has more than 3 vehicles </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q23" value="Yes" >
+                             <p class="text">Yes</p>
+
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q23" value="No" >
+                            <p class="text">No</p>                            
+                   </label>
+                   <label class="label">
+                    <input type="radio" id="value-1" active name="q23" value="" checked="">
+                    <p class="text">null</p>
+                    </label> 
+                    </div> 
+            </div>
+
+            <!-- Q24 -->
+            <div class="Q">
+                <p><span class="q_no">Q24: </span> Gender <span class="must">*</span> </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q24" value="Male" required>
+                             <p class="text">Male</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q24" value="Female" required>
+                            <p class="text">Female</p>
+                   </label>
+                    </div> 
+            </div>
+
+            <!-- Q25 -->
+            <div class="Q">
+                <p><span class="q_no">Q25: </span> Age<span class="must">*</span>  </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q25" value="0-5" required>
+                             <p class="text">0-5</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q25" value="5-12" required>
+                            <p class="text">5-12</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q25" value="13-18" required>
+                            <p class="text">13-18</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q25" value="18-25" required>
+                            <p class="text">18-25</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q25" value="26-50" required>
+                        <p class="text">26-50</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q25" value="50-65" required>
+                            <p class="text">50-65</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q25" value=">65" required>
+                            <p class="text">>65</p>
+                    </label>
+                    
+                    </div> 
+            </div>
+
+            <!-- Q26 -->
+            <div class="Q">
+                <p><span class="q_no">Q26: </span> Has Driving license.<span class="must">*</span> </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q26" value="Only car- Non professional" required>
+                             <p class="text">Only car- Non professional</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q26" value="Only 2 wheeler- non professional" required>
+                            <p class="text">Only 2 wheeler- non professional</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q26" value="Both Non professional" required>
+                            <p class="text">Both Non professional</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q26" value="Professional" required>
+                            <p class="text">Professional</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q26" value="None" required>
+                        <p class="text">None</p>
+                    </label>
+                    </div>
+            </div>
+
+            <!-- Q27 -->
+            <div class="Q">
+                <p><span class="q_no">Q27: </span> Highest Level of Education<span class="must">*</span> 
+                </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q27" value="Phd or equivalent" required>
+                             <p class="text">Phd or equivalent</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q27" value="Masters or equivalent" required>
+                            <p class="text">Masters or equivalent</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q27" value="Bachelor or equivalent" required>
+                        <p class="text">Bachelor or equivalent</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q27" value="Technical or equivalent" required>
+                            <p class="text">Technical or equivalent</p>
+                   </label>
+                   <label class="label">
+                       <input type="radio"  name="q27" value="Higher Secondary" required>
+                           <p class="text">Higher Secondary</p>
+                  </label>
+                  <label class="label">
+                   <input type="radio"  name="q27" value="Secondary" required>
+                       <p class="text">Secondary</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q27" value="Primary" required>
+                        <p class="text">Primary</p>
+               </label>
+               <label class="label">
+                   <input type="radio"  name="q27" value="Illeterate" required>
+                       <p class="text">Illeterate</p>
+              </label>
+              <label><input type="radio" name="q27" class="otherRad" required> <input  class="other" type="text" placeholder="Other" required>
+                </div> 
+            </div>
+
+            <!-- Q28 -->
+            <div class="Q">
+                <p><span class="q_no">Q28: </span> Occupation <span class="must">*</span> 
+                </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q28" value="Govt. Employee" required>
+                             <p class="text">Govt. Employee</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q28" value="Private Employee" required>
+                            <p class="text">Private Employee</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q28" value="Businessman" required>
+                        <p class="text">Businessman</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q28" value="Student" required>
+                            <p class="text">Student</p>
+                   </label>
+                   <label class="label">
+                       <input type="radio"  name="q28" value="Housewife" required>
+                           <p class="text">Housewife</p>
+                  </label>
+                  <label class="label">
+                   <input type="radio"  name="q28" value="Tuition" required>
+                       <p class="text">Tuition</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q28" value="Freelancer " class="otherRad" required>
+                        <p class="text">Freelancer: </p>
+                        <input type="text" class="other" name="q28" placeholder="Example"required>
+               </label>
+               <label class="label">
+                   <input type="radio"  name="q28" value="Staff" class="otherRad">
+                       <p class="text">Staff: </p>
+                    <input type="text" name="q28" class="other" placeholder="Example" required>
+              </label>
+              <label class="label">
+                <input type="radio"  name="q28" value="Unemployed" >
+                    <p class="text">Unemployed</p>
+           </label>
+              <label><input type="radio" name="q28" class="otherRad" required>Other: <input  class="other" type="text" placeholder="Other" required>
+                </div> 
+            </div>
+            
+            <h1>Trip related information</h1>
+               <h3> Below questionnaire are used to collect individual trip related information.</h3>
+            <h1>Trip 1</h1>
+            <!-- Q29 -->
+            <div class="Q">
+                <p><span class="q_no">Q29: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                    <input type="time" name="q29">
+            </div>
+
+            <!-- Q30 -->
+            <div class="Q">
+                <p><span class="q_no">Q30: Origin address (please write specifically so that we can pinpoint roughly on map)</span></p>
+                <div>
+                    <label for="q30_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q30_lat" name="q30_a" >
+                    <label for="q30_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q30_lng" name="q30_b" >
+                    <button type="button" onclick="openMap('q30')" class="locator">Select Starting Location</button>
+                </div>
+        
+            </div>
+
+            <!-- Q31 -->
+            <div class="Q">
+                <p><span class="q_no">Q31: </span> Origin Type </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q31" value="Home" >
+                             <p class="text">Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q31" value="Work" >
+                            <p class="text">Work</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q31" value="Education" >
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q31" value="Shopping" >
+                            <p class="text">Shopping</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q31" value="Social/Recreational/Personal" >
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q31" value="Others" >
+                            <p class="text">Others</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio" id="value-1" name="q31" value="" checked="">
+                    <p class="text">null</p>
+              </label>  
+                    </div> 
+            </div>
+
+            <!-- Q32 -->
+            <div class="Q">
+                <p><span class="q_no">Q32: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="start_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q32_lat" name="q32_a" >
+                    <label for="start_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q32_lng" name="q32_b" >
+                    <button type="button" onclick="openMap('q32')" class="locator">Select Starting Location</button>
+                </div>
+        
+            </div>
+
+            <!-- Q33 -->
+            <div class="Q">
+                <p><span class="q_no">Q33: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q33" value="Work" >
+                             <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q33" value="Education" >
+                            <p class="text">Education</p>
+                   </label>
+                   <label class="label">
+                    <input type="radio"  name="q33" value="Shopping" >
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                    <input type="radio"  name="q33" value="Social/Recreational/Personal" >
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                    <input type="radio"  name="q33" value="Return to Home" >
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q33" value="Others" >
+                    <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q33" value="" checked="">
+                        <p class="text">null</p>
+                  </label> 
+                  </null->
+                    </div> 
+            </div>
+
+            <!-- Q34 -->
+            <div class="Q">
+                <p><span class="q_no">Q34: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                         <input type="checkbox"  name="q34" value="Bus" >
+                             <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox"  name="q34" value="Private Bus (Office bus/ school bus etc)" >
+                            <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                   <label class="label">
+                    <input type="checkbox"  name="q34" value="Human Hauler ( 9 or 14 seater tempu etc)" >
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                    <input type="checkbox"  name="q34" value="Rickshaw" >
+                       <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox"  name="q34" value="CNG/taxi" >
+                            <p class="text">CNG/taxi</p>
+                   </label>
+                   <label class="label">
+                       <input type="checkbox"  name="q34" value="Personal Car" >
+                           <p class="text">Personal Car</p>
+                   </label>
+                  <label class="label">
+                   <input type="checkbox"  name="q34" value="Rented or ride sharing Car" >
+                       <p class="text">Rented or ride sharing Car</p>
+                   </label>
+                   <label class="label">
+                   <input type="checkbox"  name="q34" value="Personal 2 wheeler" >
+                      <p class="text">Personal 2 wheeler</p>
+                   </label>
+                   <label class="label">
+                    <input type="checkbox"  name="q34" value="Ride sharing 2 wheeler" >
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox"  name="q34" value="Bicycle" >
+                            <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                    <input type="checkbox"  name="q34" value="Walk" >
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                    <input type="checkbox"  name="q34" value="Other" >
+                        <p class="text">Other</p>
+                    </label>
+                </div> 
+            </div>
+
+            <!-- Q35 -->
+            <div class="Q">
+                <p><span class="q_no">Q35: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                    <input type="time" name="q35">
+            </div>
+
+            <!-- Q36 -->
+            <div class="Q">
+                <p><span class="q_no">Q36: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q36" value="Alone" >
+                             <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q36" value="1 person" >
+                            <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q36" value="2 persons" >
+                            <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                       <input type="radio"  name="q36" value="3 persons" >
+                           <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q36" value="3+ persons" >
+                            <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                       <input type="radio"  name="q36" value="" checked="">
+                           <p class="text">null</p>
+                    </label>
+                    </div> 
+            </div>
+
+            <!-- Q37 -->
+            <div class="Q">
+                <p><span class="q_no">Q37: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home  that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                    <input type="text" name="q37">
+                </div>
+            <h1>Trip 2</h1>
+            <!-- Q38 -->
+            <div class="Q">
+                <p><span class="q_no">Q38: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q38">
+            </div>
+
+            <!-- Q39 -->
+            <div class="Q">
+                <p><span class="q_no">Q39: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q39_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q39_lat" name="q39_a" >
+                    <label for="q39_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q39_lng" name="q39_b" >
+                    <button type="button" onclick="openMap('q39')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q40 -->
+            <div class="Q">
+                <p><span class="q_no">Q40: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q40" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q40" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q40" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q40" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q40" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q40" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q40" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q41 -->
+            <div class="Q">
+                <p><span class="q_no">Q41: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q41" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q41" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q42 -->
+            <div class="Q">
+                <p><span class="q_no">Q42: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q42">
+            </div>
+
+            <!-- Q43 -->
+            <div class="Q">
+                <p><span class="q_no">Q43: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q43" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q43" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q43" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q43" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q43" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q43" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q44 -->
+            <div class="Q">
+                <p><span class="q_no">Q44: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q44">
+            </div>
+
+            <h1>Trip 3</h1>
+            <!-- Q45 -->
+            <div class="Q">
+                <p><span class="q_no">Q45: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q45">
+            </div>
+
+            <!-- Q46 -->
+            <div class="Q">
+                <p><span class="q_no">Q46: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q46_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q46_lat" name="q46_a" >
+                    <label for="q46_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q46_lng" name="q46_b" >
+                    <button type="button" onclick="openMap('q46')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q47 -->
+            <div class="Q">
+                <p><span class="q_no">Q47: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q47" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q47" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q47" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q47" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q47" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q47" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q47" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q48 -->
+            <div class="Q">
+                <p><span class="q_no">Q48: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q48" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q48" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q49 -->
+            <div class="Q">
+                <p><span class="q_no">Q49: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q49">
+            </div>
+
+            <!-- Q50 -->
+            <div class="Q">
+                <p><span class="q_no">Q50: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q50" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q50" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q50" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q50" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q50" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q50" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q51 -->
+            <div class="Q">
+                <p><span class="q_no">Q51: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q51">
+            </div>
+
+            <h1>Trip 4</h1>
+            <!-- Q52 -->
+            <div class="Q">
+                <p><span class="q_no">Q52: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q52">
+            </div>
+
+            <!-- Q53 -->
+            <div class="Q">
+                <p><span class="q_no">Q53: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q53_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q53_lat" name="q53_a" >
+                    <label for="q53_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q53_lng" name="q53_b" >
+                    <button type="button" onclick="openMap('q53')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q54 -->
+            <div class="Q">
+                <p><span class="q_no">Q54: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q54" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q54" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q54" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q54" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q54" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q54" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q54" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q55 -->
+            <div class="Q">
+                <p><span class="q_no">Q55: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q55" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q55" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q56 -->
+            <div class="Q">
+                <p><span class="q_no">Q56: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q56">
+            </div>
+
+            <!-- Q57 -->
+            <div class="Q">
+                <p><span class="q_no">Q57: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q57" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q57" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q57" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q57" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q57" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q57" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q58 -->
+            <div class="Q">
+                <p><span class="q_no">Q58: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q58">
+            </div>
+
+            <h1>Trip 5</h1>
+            <!-- Q59 -->
+            <div class="Q">
+                <p><span class="q_no">Q59: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q59">
+            </div>
+
+            <!-- Q60 -->
+            <div class="Q">
+                <p><span class="q_no">Q60: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q60_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q60_lat" name="q60_a" >
+                    <label for="q60_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q60_lng" name="q60_b" >
+                    <button type="button" onclick="openMap('q60')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q61 -->
+            <div class="Q">
+                <p><span class="q_no">Q61: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q61" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q61" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q61" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q61" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q61" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q61" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q61" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q62 -->
+            <div class="Q">
+                <p><span class="q_no">Q62: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q62" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q62" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q63 -->
+            <div class="Q">
+                <p><span class="q_no">Q63: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q63">
+            </div>
+
+            <!-- Q64 -->
+            <div class="Q">
+                <p><span class="q_no">Q64: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q64" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q64" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q64" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q64" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q64" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q64" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q65 -->
+            <div class="Q">
+                <p><span class="q_no">Q65: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q65">
+            </div>
+
+            <h1>Trip 6</h1>
+            <!-- Q66 -->
+            <div class="Q">
+                <p><span class="q_no">Q66: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q66">
+            </div>
+
+            <!-- Q67 -->
+            <div class="Q">
+                <p><span class="q_no">Q67: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q67_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q67_lat" name="q67_a" >
+                    <label for="q67_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q67_lng" name="q67_b" >
+                    <button type="button" onclick="openMap('q67')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q68 -->
+            <div class="Q">
+                <p><span class="q_no">Q68: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q68" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q68" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q68" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q68" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q68" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q68" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q68" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q69 -->
+            <div class="Q">
+                <p><span class="q_no">Q69: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q69" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q69" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q70 -->
+            <div class="Q">
+                <p><span class="q_no">Q70: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q70">
+            </div>
+
+            <!-- Q71 -->
+            <div class="Q">
+                <p><span class="q_no">Q71: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q71" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q71" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q71" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q71" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q71" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q71" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q72 -->
+            <div class="Q">
+                <p><span class="q_no">Q72: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q72">
+            </div>
+            <h1>Trip 7</h1>
+            <!-- Q73 -->
+            <div class="Q">
+                <p><span class="q_no">Q73: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q73">
+            </div>
+
+            <!-- Q74 -->
+            <div class="Q">
+                <p><span class="q_no">Q74: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q74_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q74_lat" name="q74_a" >
+                    <label for="q74_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q74_lng" name="q74_b" >
+                    <button type="button" onclick="openMap('q74')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q75 -->
+            <div class="Q">
+                <p><span class="q_no">Q75: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q75" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q75" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q75" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q75" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q75" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q75" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q75" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q76 -->
+            <div class="Q">
+                <p><span class="q_no">Q76: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q76" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q76" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q77 -->
+            <div class="Q">
+                <p><span class="q_no">Q77: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q77">
+            </div>
+
+            <!-- Q78 -->
+            <div class="Q">
+                <p><span class="q_no">Q78: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q78" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q78" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q78" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q78" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q78" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q78" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q79 -->
+            <div class="Q">
+                <p><span class="q_no">Q79: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q79">
+            </div>
+
+            <h1>Trip 8</h1>
+            <!-- Q80 -->
+            <div class="Q">
+                <p><span class="q_no">Q80: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q80">
+            </div>
+
+            <!-- Q81 -->
+            <div class="Q">
+                <p><span class="q_no">Q81: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q81_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q81_lat" name="q81_a" >
+                    <label for="q81_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q81_lng" name="q81_b" >
+                    <button type="button" onclick="openMap('q81')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q82 -->
+            <div class="Q">
+                <p><span class="q_no">Q82: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q82" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q82" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q82" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q82" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q82" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q82" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q82" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q83 -->
+            <div class="Q">
+                <p><span class="q_no">Q83: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q83" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q83" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q84 -->
+            <div class="Q">
+                <p><span class="q_no">Q84: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q84">
+            </div>
+
+            <!-- Q85 -->
+            <div class="Q">
+                <p><span class="q_no">Q85: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q85" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q85" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q85" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q85" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q85" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q85" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q86 -->
+            <div class="Q">
+                <p><span class="q_no">Q86: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q86">
+            </div>
+            <h1>Trip 9</h1>
+            <!-- Q87 -->
+            <div class="Q">
+                <p><span class="q_no">Q87: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q87">
+            </div>
+
+            <!-- Q88 -->
+            <div class="Q">
+                <p><span class="q_no">Q88: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q88_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q88_lat" name="q88_a" >
+                    <label for="q88_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q88_lng" name="q88_b" >
+                    <button type="button" onclick="openMap('q88')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q89 -->
+            <div class="Q">
+                <p><span class="q_no">Q89: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q89" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q89" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q89" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q89" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q89" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q89" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q89" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q90 -->
+            <div class="Q">
+                <p><span class="q_no">Q90: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q90" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q90" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q91 -->
+            <div class="Q">
+                <p><span class="q_no">Q91: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q91">
+            </div>
+
+            <!-- Q92 -->
+            <div class="Q">
+                <p><span class="q_no">Q92: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q92" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q92" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q92" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q92" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q92" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q92" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q93 -->
+            <div class="Q">
+                <p><span class="q_no">Q93: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q93">
+            </div>
+
+            <h1>Trip 10</h1>
+            <!-- Q94 -->
+            <div class="Q">
+                <p><span class="q_no">Q94: </span> <h3>Start Time</h3>
+                    Trip start time </p>
+                <input type="time" name="q94">
+            </div>
+
+            <!-- Q95 -->
+            <div class="Q">
+                <p><span class="q_no">Q95: Destination address (please write specifically where the trip ended) </span></p>
+                <div>
+                    <label for="q95_lat">Starting Location Latitude:</label>
+                    <input type="number" id="q95_lat" name="q95_a" >
+                    <label for="q95_lng">Starting Location Longitude:</label>
+                    <input type="number" id="q95_lng" name="q95_b" >
+                    <button type="button" onclick="openMap('q95')" class="locator">Select Starting Location</button>
+                </div>
+            </div>
+
+            <!-- Q96 -->
+            <div class="Q">
+                <p><span class="q_no">Q96: </span> Trip Purpose </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q96" value="Work">
+                        <p class="text">Work</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q96" value="Education">
+                        <p class="text">Education</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q96" value="Shopping">
+                        <p class="text">Shopping</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q96" value="Social/Recreational/Personal">
+                        <p class="text">Social/Recreational/Personal</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q96" value="Return to Home">
+                        <p class="text">Return to Home</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q96" value="Others">
+                        <p class="text">Others</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-1" name="q96" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q97 -->
+            <div class="Q">
+                <p><span class="q_no">Q97: </span> Modes used for stages </p>
+                <div class="radio-input">
+                    <label class="cyberpunk-checkbox-label">
+                        <input type="checkbox" name="q97" value="Bus">
+                        <p class="text">Bus</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Private Bus (Office bus/ school bus etc)">
+                        <p class="text">Private Bus (Office bus/ school bus etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Human Hauler ( 9 or 14 seater tempu etc)">
+                        <p class="text">Human Hauler ( 9 or 14 seater tempu etc)</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Rickshaw">
+                        <p class="text">Rickshaw</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="CNG/taxi">
+                        <p class="text">CNG/taxi</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Personal Car">
+                        <p class="text">Personal Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Rented or ride sharing Car">
+                        <p class="text">Rented or ride sharing Car</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Personal 2 wheeler">
+                        <p class="text">Personal 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Ride sharing 2 wheeler">
+                        <p class="text">Ride sharing 2 wheeler</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Bicycle">
+                        <p class="text">Bicycle</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Walk">
+                        <p class="text">Walk</p>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="q97" value="Other">
+                        <p class="text">Other</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q98 -->
+            <div class="Q">
+                <p><span class="q_no">Q98: </span> <h3>End Time</h3>
+                    (approximately when you arrived at destination)</p>
+                <input type="time" name="q98">
+            </div>
+
+            <!-- Q99 -->
+            <div class="Q">
+                <p><span class="q_no">Q99: </span> Accompanied by </p>
+                <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" name="q99" value="Alone">
+                        <p class="text">Alone</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q99" value="1 person">
+                        <p class="text">1 person</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q99" value="2 persons">
+                        <p class="text">2 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q99" value="3 persons">
+                        <p class="text">3 persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q99" value="3+ persons">
+                        <p class="text">3+ persons</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" name="q99" value="" checked="">
+                        <p class="text">null</p>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q100 -->
+            <div class="Q">
+                <p><span class="q_no">Q100: </span><h3>Trip Cost (BDT)</h3>
+                    Write down the total amount of cost to make this trip, for example you have taken a rickshaw from your home that cost you 30 taka, and arrived at a bus station from there you used human hauler which cost you 10 taka to travel to another place and finally walked to your final destination so your trip cost is total 40 taka. </p>
+                <input type="text" name="q100">
+            </div>
+
+            <!-- Q101 -->
+            <div class="Q">
+                <p><span class="q_no">Q101: </span> Have more household member?<span class="must">*</span>  </p>
+                <div class="radio-input">
+                    <label class="label">
+                         <input type="radio"  name="q" value="Yes" required>
+                             <p class="text">Yes</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio"  name="q" value="No" required>
+                            <p class="text">No</p>
+                   </label>
+                    </div> 
+            </div>
+
+        
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit">Submit</button>
+    </form>
+</div>
+
+
+
+<!--Java Script-->
+<script>
+    // Open a new window with the map for selecting the location
+    function openMap(type) {
+        window.open(`map.html?type=${type}`, "Select Location", "width=800,height=600");
+    }
+
+    // Function to receive data from the map and populate the form
+    function receiveLocationData(lat, lng, type) {
+        document.getElementById(String(type+'_lat')).value = lat;
+        document.getElementById(String(type+'_lng')).value = lng; 
+    }
+</script>
+</body>
+</html>
