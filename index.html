@@ -12,18 +12,21 @@
     
 </head>
 <body>
-
 <div class="container">
     <h2>Survey Form</h2>
     <p><span class="must">* Indicated required questions.</span></p>
     <p>Note: Select <span class="must">"null"</span> if not answered. [For the questions that are not mandatory]</p>
-    <div class="Q">
+    
     <form action="process_survey.php" method="POST">
+        <div class="section active" id="section1">
+        <h1>Aggriment</h1>
         <!-- Q1 -->
+        <div class="Q">
+        <div class="radio-input">
             <p><span class="q_no">Q1: </span>Do you agree to help us in research by providing some information about your household travel diaries? 
                 [ আপনি কি আপনার গৃহস্থালিসংক্রান্ত যাত্রাবিবরনির কিছু তথ্য দিয়ে গবেষনায় সাহায্য করতে রাজি আছেন? ] <span class="must">*</span> <br> </p>
             
-            <div class="radio-input">
+            
                 <label class="label">
                   <input type="radio" id="value-1"  name="q1" value="Yes" required>
                   <p class="text">Yes</p>
@@ -41,7 +44,16 @@
         <p><span class="q_no">Q2: </span>Your Mobile Number if you want to attend lucky draw. </p>
         
         <input type="number" step="0.000000000000001" id="p_num" name="q2" placeholder="Phone">
+        </div> 
+        <div class="bottom_btn">
+            
+            <button class="next_btn right" onclick="opentab('section1','section2')">Next</button>
         </div>
+                
+        </div>
+
+        <div class="section" id="section2">
+        <h1>Household Information</h1>
         <!-- Q3 -->
         <div class="Q">
         <p><span class="q_no">Q3: </span>Ward NO.<span class="must">*</span> </p>
@@ -220,13 +232,22 @@
             </div>
             <!-- Q10 -->
             <div class="Q">
+                <div>
             <p><span class="q_no">Q10: </span> <h3>Travel Date</h3>
                 Please select today if your household members have completed all trips of the day or else please select yesterday as travel day and fill out yesterday's information. But trip information of one whole day of the all household members is required for this research. </p>
                 <label class="label">
                     <input type="date"  name="q10">
-                  </label>
-                  
+                  </label> 
+                </div>
+                </div>
+
+                <div class="bottom_btn">
+                    <button class="next_btn" onclick="opentab('section2','section1')">Previous</button>
+                    <button class="next_btn" onclick="opentab('section2','section3')">Next</button>
+                </div>
             </div>
+            <div class="section" id="section3">
+            <h1>Vehicle Information</h1>
             <!-- Q11 -->
             <div class="Q">
             <p><span class="q_no">Q11: </span> Vehicle 1 type </p>
@@ -606,10 +627,15 @@
                 <input type="radio"  name="q28" value="Unemployed" >
                     <p class="text">Unemployed</p>
            </label>
-              <label><input type="radio" name="q28" class="otherRad" required>Other: <input  class="other" type="text" placeholder="Other" >
+              <label><input type="radio" name="q28" class="otherRad" required>Other: <input name="q28" class="other" type="text" placeholder="Other">
                 </div> 
             </div>
-            
+            <div class="bottom_btn">
+                <button class="next_btn" onclick="opentab('section3','section2')">Previous</button>
+                <button class="next_btn" onclick="opentab('section3','section4')">Next</button>
+            </div>
+        </div>
+        <div class="section" id="section4">
             <h1>Trip related information</h1>
                <h3> Below questionnaire are used to collect individual trip related information.</h3>
             <h1>Trip 1</h1>
@@ -2223,11 +2249,16 @@
                    </label>
                     </div> 
             </div>
-
+            <div class="bottom_btn">
+                <button class="next_btn" onclick="opentab('section4','section3')">Previous</button>
+                <button type="submit" class="submit">Submit</button>
+            </div> 
+            
+        </div>
         
 
         <!-- Submit Button -->
-        <button type="submit" class="submit">Submit</button>
+        
     </form>
 </div>
 
@@ -2235,6 +2266,10 @@
 
 <!--Java Script-->
 <script>
+    function opentab(current,toop) {
+            document.getElementById(current).classList.remove("active");
+            document.getElementById(toop).classList.add("active");
+        }
     // Open a new window with the map for selecting the location
     function openMap(type) {
         window.open(`map.html?type=${type}`, "Select Location", "width=800,height=600");
@@ -2245,6 +2280,16 @@
         document.getElementById(String(type+'_lat')).value = lat;
         document.getElementById(String(type+'_lng')).value = lng; 
     }
+
+var checker=document.getElementsByClassName("otherRad");
+var checkother=document.getElementsByClassName("other");
+if (checker.checked=true){
+    checkother.required=true;
+    checkother.style="background-color: #3cb371;";
+}
+
+        
+        
 </script>
 </body>
 </html>
