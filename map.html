@@ -40,7 +40,7 @@
         .mapitem {
             width: auto;
             position: absolute;
-            top: 11px;
+            top: 10px;
             right: 10px;
             display: flex;
             flex-direction: column;
@@ -48,14 +48,14 @@
         }
         
         /* Responsive styles for mobile phones */
-        @media (max-width: 1081px) {
+        @media (max-width: 600px) {
             .custom-zoom {
                 padding: 8px 10px;
                 font-size: 16px;
             }
             
             .mapitem {
-                top: 50px;
+                top: 5px;
                 right: 5px;
             }
             
@@ -75,6 +75,8 @@
     <div id="map"></div>
     <div class="mapitem">
         <button id="zoomButton" class="custom-zoom btn" disabled>Zoom to Location</button>
+        <br>
+        <button id="currentLocationButton" class="custom-zoom">Current Location</button> <!-- New button for current location -->
         <br>
         <button class="custom-zoom" onclick="closem()">Enter</button>
     </div>
@@ -144,7 +146,24 @@
             }
         }
 
+        // Add event listener to the zoom button
         document.getElementById('zoomButton').addEventListener('click', zoomToLocation);
+
+        // Get and zoom to the current location using Geolocation API
+        document.getElementById('currentLocationButton').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    map.setView([lat, lng], 18);  // Zoom to current location
+                    placeMarker(lat, lng);  // Place marker at current location
+                }, function() {
+                    alert("Unable to retrieve your location");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
 
         window.onload = initMap;
     </script>
