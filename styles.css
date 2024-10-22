@@ -18,8 +18,10 @@ body {
   }
   
 .otherRad:checked ~ .other {
+    content: "*";
     opacity: 1;
     pointer-events: auto;
+    background-color: #2e8b57;
   }
 
 .Q{
@@ -44,9 +46,23 @@ body {
 
 .form-group {
     margin-bottom: 15px;
+    top: 10px;
+}
+.next_btn{
+    padding: 10px 15px;
+    background-color: #0ca3a5;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
+.bottom_btn{
+    display: flex;
+    justify-content: space-between;}
+
 .submit {
+
     padding: 10px 15px;
     background-color: #3cb371;
     border: none;
@@ -58,7 +74,12 @@ body {
 .submit:hover {
     background-color: #2e8b57;
 }
-
+.section{
+    display: none;
+}
+.active{
+    display: block;
+}
 /* for radio type */
 .radio-input label {
     display: flex;
@@ -133,6 +154,10 @@ textarea {
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
+    .right{
+        position: relative;
+        right:-90%;
+    }
     .container {
         width: 90%; /* Make container take more space on mobile */
         padding: 15px;
@@ -144,8 +169,9 @@ textarea {
     }
 
     .submit {
-        width: 100%; /* Full width button on mobile */
+        width: 50%; /* Full width button on mobile */
         padding: 12px 0;
+        position: relative;
     }
 
     input[type="text"],
@@ -174,6 +200,10 @@ textarea {
         gap: 10px;
         padding: 0px 5px;
     }
+}
+.right{
+    position: relative;
+    right:-87%;
 }
 
 /* From Uiverse.io by Galahhad */ 
